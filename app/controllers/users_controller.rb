@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_params, only: [:show, :edit, :update]
+  before_action :collect_user, only: [:edit, :update]
 
   def show # 追加
-   @user = User.find(params[:id])
   end
   
   def new
@@ -19,11 +20,9 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Updated your Plofile"
       redirect_to @user
@@ -33,6 +32,14 @@ class UsersController < ApplicationController
   end
 
   private
+  
+  def set_params
+    @user = User.find(params[:id])
+  end
+  
+  def collect_user
+    redirect_to root_path if @user != current_user
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
