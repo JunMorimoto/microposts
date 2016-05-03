@@ -23,6 +23,10 @@ textarea {
   margin-bottom: 10px;
 }
 
+#profile_show{
+  margin-left: 350px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,6 +52,15 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+#profile_show{
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: normal;
+  color: #777;
 }
 
 /* header */
@@ -106,6 +119,7 @@ input {
   }
 }
 
+<<<<<<< HEAD
 /* sidebar */
 
 aside {
@@ -189,3 +203,5 @@ span.picture {
     border: 0;
   }
 }
+=======
+>>>>>>> user-profile

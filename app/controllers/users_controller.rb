@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
+  before_action :set_params, only: [:show, :edit, :update]
+  before_action :collect_user, only: [:edit, :update]
 
+<<<<<<< HEAD
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
+=======
+  def show # 追加
+>>>>>>> user-profile
   end
   
   def new
@@ -18,12 +24,31 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+  end
 
+  def update
+    if @user.update(user_params)
+      flash[:success] = "Updated your Plofile"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
 
   private
+  
+  def set_params
+    @user = User.find(params[:id])
+  end
+  
+  def collect_user
+    redirect_to root_path if @user != current_user
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :location, :birthday, :comment, :hobby)
   end
 end
