@@ -1,0 +1,6 @@
+<h1>フォロー一覧</h1>
+    <ol class="following">
+        <% @following.each do |user| %>
+            <%= user.name %>
+        <% end %>
+    </ol>

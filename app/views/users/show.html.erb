@@ -5,16 +5,17 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      
-      <div id="profile_show">
-  <ul>
-    <li><span class="label label-info">Birthday</span><%= @user.birthday %></li>
-    <li><span class="label label-info">Location</span><%= @user.location %></li>
-    <li><span class="label label-info">Hobby</span><%= @user.hobby %></li>
-    <li><span class="label label-info">Comment</span><%= @user.comment %></li>
-  </ul>
-      </div>
     </section>
+    <div id="profile_show">
+      <ul>
+        <li><span class="label label-info">Birthday</span><%= @user.birthday %></li>
+        <li><span class="label label-info">Location</span><%= @user.location %></li>
+        <li><span class="label label-info">Hobby</span><%= @user.hobby %></li>
+        <li><span class="label label-info">Comment</span><%= @user.comment %></li>
+        <li><%= link_to "Following", following_user_path(@user) %></li>
+        <li><%= link_to "Followers", followers_user_path(@user) %></li>
+      </ul>
+    </div>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :collect_user, only: [:edit, :update]
 
   def show
-    @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
   end
   
@@ -31,6 +30,16 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def following
+    @user = User.find(params[:id])
+    @following = @user.following_users.order(created_at: :desc)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.follower_users.order(created_at: :desc)
   end
 
   private

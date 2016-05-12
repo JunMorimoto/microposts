@@ -1,0 +1,6 @@
+<h1>フォロワー一覧<h1>
+    <ol class="followers">
+        <% @followers.each do |user| %>
+            <%= user.name %>
+        <% end %>
+    </ol>
