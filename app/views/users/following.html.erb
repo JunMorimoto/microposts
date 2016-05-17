@@ -1,6 +1,28 @@
-<h1>フォロー一覧</h1>
-    <ul class="following">
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <div id="profile_show">
+      <ul>
+        <li><span class="label label-info">Birthday</span><%= @user.birthday %></li>
+        <li><span class="label label-info">Location</span><%= @user.location %></li>
+        <li><span class="label label-info">Hobby</span><%= @user.hobby %></li>
+        <li><span class="label label-info">Comment</span><%= @user.comment %></li>
+        <li><%= link_to "Following", following_user_path(@user) %></li>
+        <li><%= link_to "Followers", followers_user_path(@user) %></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="col-md-8">
+    <h1>フォロー一覧</h1>
+    <ul class="following" id="show_follow">
         <% @following.each do |user| %>
-            <li><%= gravatar_for user %><%= user.name %></li>
+            <li><%= gravatar_for user, size: 50 %><%= user.name %></li>
         <% end %>
     </ul>
+  </div>
+</div>
