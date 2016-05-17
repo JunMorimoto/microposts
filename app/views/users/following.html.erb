@@ -1,6 +1,6 @@
 <h1>フォロー一覧</h1>
-    <ol class="following">
+    <ul class="following">
         <% @following.each do |user| %>
-            <%= user.name %>
+            <li><%= gravatar_for user %><%= user.name %></li>
         <% end %>
-    </ol>
+    </ul>

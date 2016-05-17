@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160503073013) do
 
-  create_table "edit_users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.date     "birthday"
-    t.string   "comment"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "content"
